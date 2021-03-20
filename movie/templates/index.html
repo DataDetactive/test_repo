@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Home Page</title>
+    </head>
+    <body style="background-color: lightslategray;">
+        <h1>List of movies</h1>
+        <ul>
+            {% for movie in movies %}
+                <img src="{{ movie.poster.url }}" height="300" width="600" alt="">
+                <div>
+                    <a href="{% url 'show' movie.id %}">{{ movie.title }}</a>
+                    <h4> {{ movie.description }}</h4>
+                    <h4> {{ movie.year }}</h4>
+                </div>
+                <div>
+                    {% if perms.movie.Movie %}
+                        <a href="{% url 'update' movie.id %}">Update</a>
+                        {% else %}
+                            <p>Welcome, new user. Please log in.</p>
+                    {% endif %}
+                    
+                </div>
+
+                
+            {% endfor %}
+        </ul>
+        
+    </body>
+</html>

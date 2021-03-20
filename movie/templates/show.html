@@ -1,0 +1,20 @@
+<!DOCTYPE >
+<html>
+    <head>
+        <title></title>
+
+    </head>
+    <body>
+        <div>
+            
+                <img src="{{ movie.poster.url }}" height="300" width="600" alt="">
+                <div>
+                    <h3>{{ movie.title }}</h3>
+                    <h4> {{ movie.description }}</h4>
+                    <h4> {{ movie.year }}</h4>
+                </div>
+            
+        </div>
+        <video controls src="{{ request.scheme }}://{{ request.get_host }}{{ movie.video.url }}"></video>
+    </body>
+</html>
